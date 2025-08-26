@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: demoapp
+  name: demosvc
+  namespace: demons
+spec:
+  ports:
+  - name: demoapp-ports
+    nodePort: 32123
+    port: 80
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: demoapp
+  type: NodePort
